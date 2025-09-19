@@ -36,11 +36,6 @@ cd "$latest_album_dir"
 echo "Removing playlist files."
 find "$latest_album_dir" -maxdepth 1 -type f \( -name '*.m3u' -o -name '*.cue' -o -name '*.toc' \) -print -delete || true
 
-if [[ ! -x "$script_dir/add-album-art.sh" ]]; then
-  echo "Missing or not executable: $script_dir/add-album-art.sh" >&2
-  exit 1
-fi
-
 run_add_album_art() {
   if command -v add-album-art >/dev/null 2>&1; then
     add-album-art
